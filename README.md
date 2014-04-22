@@ -29,7 +29,7 @@ Add this dependency to your project's POM:
 
 You'll need to manually install the following JARs:
 
-* The Traitify JAR from https://code.stripe.com/traitify-java-latest.jar
+* The Traitify JAR from https://code.traitify.com/traitify-java-latest.jar
 * [Jersey Client](https://jersey.java.net/nonav/documentation/1.17/chapter_deps.html#core_client) from <http://maven.java.net/service/local/artifact/maven/redirect?r=releases&g=com.sun.jersey&a=jersey-client&v=1.17&e=jar>.
 * [Jersey Core](https://jersey.java.net/download.html) from <http://maven.java.net/service/local/artifact/maven/redirect?r=releases&g=com.sun.jersey&a=jersey-core&v=1.17&e=jar>.
 
@@ -61,4 +61,4 @@ See [TraitifyTest.java](https://github.com/woofound/traitify-java/blob/master/sr
 Testing
 =======
 
-You must have Maven installed. To run the tests, simply run `mvn test`. You can run particular tests by passing `-D test=Class#method` -- for example, `-D test=StripeTest#testPlanCreate`. You must also specify your `apiKey` when testing, you can do that by passing `-DapiKey=yourapikey`.
+You must have Maven installed. To run the tests, simply run `mvn test`. You can run particular tests by passing `-D test=Class#method` -- for example, `-D test=TraitifyTest#testAssessmentCreate`. You must also specify your `apiKey` when testing, you can do that by passing `-DapiKey=yourapikey`.

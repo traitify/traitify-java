@@ -24,6 +24,9 @@ public class Deck extends ApiModel {
 
     private Integer slide_count;
 
+    private PersonalityGroup personality_group;
+
+
     public String getId() {
         return id;
     }
@@ -70,5 +73,13 @@ public class Deck extends ApiModel {
 
     public void setSlide_count(Integer slide_count) {
         this.slide_count = slide_count;
+    }
+
+    public PersonalityGroup getPersonality_group() {
+        return personality_group;
+    }
+
+    public void setPersonality_group(PersonalityGroup personality_group) {
+        this.personality_group = personality_group;
     }
 }

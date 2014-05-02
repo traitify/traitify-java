@@ -24,6 +24,8 @@ public class Deck extends ApiModel {
 
     private Integer slide_count;
 
+    private Boolean active;
+
     public String getId() {
         return id;
     }
@@ -70,5 +72,13 @@ public class Deck extends ApiModel {
 
     public void setSlide_count(Integer slide_count) {
         this.slide_count = slide_count;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

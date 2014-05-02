@@ -22,7 +22,7 @@ Add this dependency to your project's POM:
     <dependency>
       <groupId>com.traitify</groupId>
       <artifactId>traitify-java</artifactId>
-      <version>0.0.2</version>
+      <version>0.0.3</version>
     </dependency>
 
 ### Others

@@ -23,6 +23,8 @@ public class Deck extends ApiModel {
     private Date created_at;
 
     private Integer slide_count;
+    
+    private Boolean active;
 
     private PersonalityGroup personality_group;
 
@@ -73,6 +75,14 @@ public class Deck extends ApiModel {
 
     public void setSlide_count(Integer slide_count) {
         this.slide_count = slide_count;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public PersonalityGroup getPersonality_group() {

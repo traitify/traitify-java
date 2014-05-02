@@ -22,6 +22,8 @@ public class Deck extends ApiModel {
 
     private Date created_at;
 
+    private Integer slide_count;
+
     public String getId() {
         return id;
     }
@@ -62,4 +64,11 @@ public class Deck extends ApiModel {
         this.created_at = created_at;
     }
 
+    public Integer getSlide_count() {
+        return slide_count;
+    }
+
+    public void setSlide_count(Integer slide_count) {
+        this.slide_count = slide_count;
+    }
 }

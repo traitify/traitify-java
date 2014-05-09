@@ -1,7 +1,9 @@
 package com.traitify.models;
 
 import com.traitify.net.ApiModel;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AssessmentPersonalityTrait extends ApiModel {
 
     private PersonalityTrait personality_trait;

@@ -1,5 +1,8 @@
 package com.traitify.models;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AssessmentPersonalityType {
 
     private PersonalityType personality_type;

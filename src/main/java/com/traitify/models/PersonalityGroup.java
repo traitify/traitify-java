@@ -1,8 +1,11 @@
 package com.traitify.models;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import java.util.Date;
 import java.util.Set;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PersonalityGroup {
 
     private String id;

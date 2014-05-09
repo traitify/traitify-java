@@ -2,10 +2,12 @@ package com.traitify.models;
 
 import com.sun.jersey.api.client.GenericType;
 import com.traitify.net.ApiModel;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 import java.util.Date;
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Deck extends ApiModel {
 
     public static List<Deck> list() {
@@ -15,6 +17,8 @@ public class Deck extends ApiModel {
     private String id;
 
     private String name;
+
+    private String description;
 
     private String personality_group_id;
 
@@ -27,7 +31,6 @@ public class Deck extends ApiModel {
     private Boolean active;
 
     private PersonalityGroup personality_group;
-
 
     public String getId() {
         return id;
@@ -43,6 +46,14 @@ public class Deck extends ApiModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getPersonality_group_id() {

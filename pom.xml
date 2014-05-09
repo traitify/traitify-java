@@ -4,7 +4,7 @@
     <groupId>com.traitify</groupId>
     <artifactId>traitify-java</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
     <name>traitify-java</name>
     <url>https://github.com/woofound/traitify-java</url>
     <dependencies>

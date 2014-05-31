@@ -5,6 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.Assert.*;
 
@@ -142,8 +143,9 @@ public class TraitifyTest {
     private List<Slide> updateAllSlides(String assessment_id){
         List<Slide> slides = listSlides(assessment_id);
 
+        Random random = new Random();
         for(Slide slide:slides){
-            slide.setResponse(true);
+            slide.setResponse(random.nextBoolean());
             slide.setTime_taken(600);
             assertNull(slide.getCompleted_at());
         }

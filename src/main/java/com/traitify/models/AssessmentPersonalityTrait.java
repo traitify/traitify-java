@@ -24,4 +24,5 @@ public class AssessmentPersonalityTrait extends ApiModel {
     public void setScore(Float score) {
         this.score = score;
     }
+
 }

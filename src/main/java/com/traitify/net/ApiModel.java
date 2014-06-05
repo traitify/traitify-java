@@ -3,7 +3,6 @@ package com.traitify.net;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
-import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.core.util.Base64;
 import com.traitify.Traitify;
 
@@ -15,9 +14,7 @@ public abstract class ApiModel {
     }
 
     public static WebResource.Builder baseResource(String path) {
-        ClientConfig config = new com.sun.jersey.api.client.config.DefaultClientConfig();
-        config.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING, Boolean.TRUE);
-        Client client = Client.create(config);
+        Client client = Client.create();
 
         return client
             .resource(Traitify.getApiBase() + "/" + Traitify.apiVersion  + "/" + path)

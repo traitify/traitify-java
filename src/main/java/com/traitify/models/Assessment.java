@@ -2,10 +2,12 @@ package com.traitify.models;
 
 import com.sun.jersey.api.client.GenericType;
 import com.traitify.net.ApiModel;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 import java.util.Date;
 import java.util.List;
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Assessment extends ApiModel {

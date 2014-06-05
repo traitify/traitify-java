@@ -1,7 +1,7 @@
 package com.traitify.models;
 
 import com.traitify.net.ApiModel;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
 

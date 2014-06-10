@@ -45,6 +45,10 @@ public class Assessment extends ApiModel {
         return baseResource("assessments/" + assessment_id + "/personality_types/" + personality_type_id + "/personality_traits").get(new GenericType<List<AssessmentPersonalityTrait>>(){});
     }
 
+    public static List<AssessmentPersonalityTrait> personalityTraits(String assessment_id){
+        return baseResource("assessments/" + assessment_id + "/personality_traits").get(new GenericType<List<AssessmentPersonalityTrait>>(){});
+    }
+
     private String id;
     private String deck_id;
     private String user_id;

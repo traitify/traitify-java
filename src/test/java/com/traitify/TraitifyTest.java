@@ -108,6 +108,17 @@ public class TraitifyTest {
         assertTrue(assessmentPersonalityTraits.size() > 0);
     }
 
+    @Test
+    public void testAllPersonalityTraits() {
+        Assessment assessment = createAssessment();
+        updateAllSlides(assessment.getId());
+
+        List<AssessmentPersonalityTrait> assessmentPersonalityTraits = Assessment.personalityTraits(assessment.getId());
+
+        assertNotNull(assessmentPersonalityTraits);
+        assertTrue(assessmentPersonalityTraits.size() > 0);
+    }
+
     private List<Deck> listDecks() {
         List<Deck> decks = Deck.list();
         assertNotNull(decks);

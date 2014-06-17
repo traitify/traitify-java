@@ -159,6 +159,11 @@ public class TraitifyTest {
     private Deck getDeck() {
         List<Deck> decks = listDecks();
         assertNotNull(decks.get(0));
+        for(Deck deck:decks){
+            if(deck.getId().equals("304d0392-4a08-4ef6-a996-224324a9f6f8")){
+                return deck;
+            }
+        }
         return decks.get(0);
     }
 

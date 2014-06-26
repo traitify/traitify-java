@@ -144,7 +144,12 @@ public class TraitifyTest {
         Assessment assessment = createAssessment();
         updateAllSlides(assessment.getId());
 
-        List<AssessmentPersonalityTrait> assessmentPersonalityTraits = Assessment.personalityTraits(assessment.getId());
+        List<AssessmentPersonalityTraitDichotomy> assessmentPersonalityTraits = Assessment.personalityTraits(assessment.getId());
+
+        for(AssessmentPersonalityTraitDichotomy assessmentPersonalityTraitDichotomy : assessmentPersonalityTraits){
+            assertNotNull(assessmentPersonalityTraitDichotomy.getLeft_personality_trait());
+            assertNotNull(assessmentPersonalityTraitDichotomy.getRight_personality_trait());
+        }
 
         assertNotNull(assessmentPersonalityTraits);
         assertTrue(assessmentPersonalityTraits.size() > 0);

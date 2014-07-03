@@ -32,11 +32,11 @@ public class TraitifyTest {
 
     @Test
     public void testAssessmentCreate() {
-        Deck deck = getDeck();
+        String deck = getDeck();
         Assessment assessment = createAssessment(deck);
 
         assertNotNull(assessment.getId());
-        assertEquals(assessment.getDeck_id(), deck.getId());
+        assertEquals(assessment.getDeck_id(), deck);
     }
 
     @Test
@@ -161,19 +161,12 @@ public class TraitifyTest {
         return decks;
     }
 
-    private Deck getDeck() {
-        List<Deck> decks = listDecks();
-        assertNotNull(decks.get(0));
-        for(Deck deck:decks){
-            if(deck.getId().equals("304d0392-4a08-4ef6-a996-224324a9f6f8")){
-                return deck;
-            }
-        }
-        return decks.get(0);
+    private String getDeck() {
+        return "career-deck";
     }
 
-    private Assessment createAssessment(Deck deck) {
-        Assessment assessment = Assessment.create(deck.getId());
+    private Assessment createAssessment(String deck) {
+        Assessment assessment = Assessment.create(deck);
         assertNotNull(assessment);
         return assessment;
     }

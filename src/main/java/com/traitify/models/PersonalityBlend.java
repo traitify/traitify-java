@@ -3,6 +3,8 @@ package com.traitify.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Set;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PersonalityBlend {
 
@@ -10,13 +12,13 @@ public class PersonalityBlend {
 
     private PersonalityType personality_type_2;
 
+    private PersonalityGroup personality_group;
+
     private String name;
 
     private String description;
 
-    private String compliments;
-
-    private String conflicts;
+    private Set<Detail> details;
 
     public PersonalityType getPersonality_type_1() {
         return personality_type_1;
@@ -32,6 +34,14 @@ public class PersonalityBlend {
 
     public void setPersonality_type_2(PersonalityType personality_type_2) {
         this.personality_type_2 = personality_type_2;
+    }
+
+    public PersonalityGroup getPersonality_group() {
+        return personality_group;
+    }
+
+    public void setPersonality_group(PersonalityGroup personality_group) {
+        this.personality_group = personality_group;
     }
 
     public String getName() {
@@ -50,19 +60,12 @@ public class PersonalityBlend {
         this.description = description;
     }
 
-    public String getCompliments() {
-        return compliments;
+    public Set<Detail> getDetails() {
+        return details;
     }
 
-    public void setCompliments(String compliments) {
-        this.compliments = compliments;
+    public void setDetails(Set<Detail> details) {
+        this.details = details;
     }
 
-    public String getConflicts() {
-        return conflicts;
-    }
-
-    public void setConflicts(String conflicts) {
-        this.conflicts = conflicts;
-    }
 }

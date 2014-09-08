@@ -3,6 +3,7 @@ package com.traitify.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.List;
 import java.util.Set;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -19,6 +20,10 @@ public class PersonalityBlend {
     private String description;
 
     private Set<Detail> details;
+
+    private List<Environment> environments;
+
+    private List<FamousPerson> famous_people;
 
     public PersonalityType getPersonality_type_1() {
         return personality_type_1;
@@ -68,4 +73,19 @@ public class PersonalityBlend {
         this.details = details;
     }
 
+    public List<Environment> getEnvironments() {
+        return environments;
+    }
+
+    public void setEnvironments(List<Environment> environments) {
+        this.environments = environments;
+    }
+
+    public List<FamousPerson> getFamous_people() {
+        return famous_people;
+    }
+
+    public void setFamous_people(List<FamousPerson> famous_people) {
+        this.famous_people = famous_people;
+    }
 }

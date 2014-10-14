@@ -49,6 +49,10 @@ public class Assessment extends ApiModel {
         return baseResource("assessments/" + assessment_id + "/personality_traits").get(new GenericType<List<AssessmentPersonalityTraitDichotomy>>(){});
     }
 
+    public static List<AssessmentPersonalityTrait> rawPersonalityTraits(String assessment_id){
+        return baseResource("assessments/" + assessment_id + "/personality_traits/raw").get(new GenericType<List<AssessmentPersonalityTrait>>(){});
+    }
+
     private String id;
     private String deck_id;
     private String user_id;

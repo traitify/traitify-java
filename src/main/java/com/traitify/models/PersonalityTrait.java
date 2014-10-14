@@ -8,6 +8,7 @@ public class PersonalityTrait {
     private String name;
     private String definition;
     private String description;
+    private PersonalityType personality_type;
 
     public String getName() {
         return name;
@@ -31,5 +32,13 @@ public class PersonalityTrait {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public PersonalityType getPersonality_type() {
+        return personality_type;
+    }
+
+    public void setPersonality_type(PersonalityType personality_type) {
+        this.personality_type = personality_type;
     }
 }

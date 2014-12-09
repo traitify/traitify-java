@@ -3,6 +3,7 @@ package com.traitify.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
+import java.util.Set;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PersonalityType {
@@ -12,7 +13,8 @@ public class PersonalityType {
     private String description;
     private String compatible_personality_type_id;
     private Badge badge;
-
+    private String keywords;
+    private Set<Detail> details;
     private List<FamousPerson> famous_people;
 
     public String getId() {
@@ -63,4 +65,19 @@ public class PersonalityType {
         this.famous_people = famous_people;
     }
 
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
+
+    public Set<Detail> getDetails() {
+        return details;
+    }
+
+    public void setDetails(Set<Detail> details) {
+        this.details = details;
+    }
 }

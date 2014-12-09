@@ -126,6 +126,10 @@ public class TraitifyTest {
 
         assertNotNull(assessmentPersonalityTypes.getPersonality_types());
         assertTrue(assessmentPersonalityTypes.getPersonality_types().size() > 0);
+
+        for(AssessmentPersonalityType assessmentPersonalityType : assessmentPersonalityTypes.getPersonality_types()){
+            assertTrue(assessmentPersonalityType.getScore() >= 0);
+        }
     }
 
     @Test
@@ -138,6 +142,22 @@ public class TraitifyTest {
 
         assertNotNull(assessmentPersonalityTraits);
         assertTrue(assessmentPersonalityTraits.size() > 0);
+    }
+
+    @Test
+    public void testRawPersonalityTraits() {
+        Assessment assessment = createAssessment();
+
+        PersonalityType personalityType = getPersonalityType(assessment.getId());
+
+        List<AssessmentPersonalityTrait> assessmentPersonalityTraits = Assessment.rawPersonalityTraits(assessment.getId());
+
+        assertNotNull(assessmentPersonalityTraits);
+        assertTrue(assessmentPersonalityTraits.size() > 0);
+
+        for(AssessmentPersonalityTrait assessmentPersonalityTrait : assessmentPersonalityTraits){
+            assertNotNull(assessmentPersonalityTrait.getPersonality_trait().getPersonality_type());
+        }
     }
 
     @Test

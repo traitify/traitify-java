@@ -4,7 +4,7 @@
     <groupId>com.traitify</groupId>
     <artifactId>traitify-java</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.10</version>
+    <version>0.0.13</version>
     <name>traitify-java</name>
     <url>https://github.com/woofound/traitify-java</url>
     <dependencies>
@@ -65,9 +65,9 @@
     <developers>
         <developer>
             <name>Eric Fleming</name>
-            <email>eric@woofound.com</email>
+            <email>eric@traitify.com</email>
             <organization>Traitify</organization>
-            <organizationUrl>http://www.woofound.com</organizationUrl>
+            <organizationUrl>http://www.traitify.com</organizationUrl>
         </developer>
     </developers>
     <scm>

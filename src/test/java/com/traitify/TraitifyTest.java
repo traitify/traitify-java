@@ -1,18 +1,12 @@
 package com.traitify;
 
-import com.google.common.util.concurrent.Futures;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.MoreExecutors;
 import com.traitify.models.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
 
 import static org.junit.Assert.*;
 
@@ -174,6 +168,57 @@ public class TraitifyTest {
 
         assertNotNull(assessmentPersonalityTraits);
         assertTrue(assessmentPersonalityTraits.size() > 0);
+    }
+
+    @Test
+    public void testCareerMatches() {
+        Assessment assessment = createAssessment();
+        updateAllSlides(assessment.getId());
+
+        List<ScoredCareer> scoredCareers = Assessment.careerMatches(assessment.getId());
+
+        assertNotNull(scoredCareers);
+        assertTrue(scoredCareers.size() > 0);
+    }
+
+    @Test
+    public void testCareerMatchesWith1Match() {
+        Assessment assessment = createAssessment();
+        updateAllSlides(assessment.getId());
+
+        List<ScoredCareer> scoredCareers = Assessment.careerMatches(assessment.getId(), 1);
+
+        assertNotNull(scoredCareers);
+        assertTrue(scoredCareers.size() == 1);
+    }
+
+    @Test
+    public void testCareerMatchesWithExperienceLevelFilter() {
+        Assessment assessment = createAssessment();
+        updateAllSlides(assessment.getId());
+
+        List<ScoredCareer> scoredCareers = Assessment.careerMatches(assessment.getId(), Arrays.asList(5));
+
+        assertNotNull(scoredCareers);
+
+        for(ScoredCareer scoredCareer:scoredCareers){
+            assertNotNull(scoredCareer.getCareer().getExperience_level());
+            assertTrue(scoredCareer.getCareer().getExperience_level().getId() == 5);
+        }
+    }
+
+    @Test
+    public void testGettingBackTraitsTypesBlendCareerMatches() {
+        Assessment assessment = createAssessment();
+        updateAllSlides(assessment.getId());
+
+        Assessment assmentResponse = Assessment.results(assessment.getId(), Arrays.asList(AssessmentData.BLEND,AssessmentData.TRAITS,AssessmentData.TYPES,AssessmentData.CAREER_MATCHES));
+
+        assertNotNull(assmentResponse);
+        assertNotNull(assmentResponse.getPersonality_blend());
+        assertNotNull(assmentResponse.getPersonality_types());
+        assertNotNull(assmentResponse.getPersonality_traits());
+        assertNotNull(assmentResponse.getCareer_matches());
     }
 
     private List<Deck> listDecks() {

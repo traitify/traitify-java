@@ -2,7 +2,6 @@ package com.traitify.net;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.core.util.Base64;
 import com.traitify.Traitify;
 

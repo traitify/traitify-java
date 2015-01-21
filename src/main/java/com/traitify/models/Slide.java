@@ -31,7 +31,9 @@ public class Slide extends ApiModel {
     private String caption;
     private String image_desktop;
     private String image_desktop_retina;
+    @Deprecated
     private String image_phone_landscape;
+    @Deprecated
     private String image_phone_portrait;
     private Boolean response;
     private Integer time_taken;
@@ -78,18 +80,22 @@ public class Slide extends ApiModel {
         this.image_desktop_retina = image_desktop_retina;
     }
 
+    @Deprecated
     public String getImage_phone_landscape() {
         return image_phone_landscape;
     }
 
+    @Deprecated
     public void setImage_phone_landscape(String image_phone_landscape) {
         this.image_phone_landscape = image_phone_landscape;
     }
 
+    @Deprecated
     public String getImage_phone_portrait() {
         return image_phone_portrait;
     }
 
+    @Deprecated
     public void setImage_phone_portrait(String image_phone_portrait) {
         this.image_phone_portrait = image_phone_portrait;
     }

@@ -29,7 +29,7 @@ Add this dependency to your project's POM:
 
 You'll need to manually install the following JARs:
 
-* The Traitify JAR from https://oss.sonatype.org/content/repositories/releases/com/traitify/traitify-java/0.0.13/traitify-java-0.0.13.jar
+* The Traitify JAR from https://oss.sonatype.org/content/repositories/releases/com/traitify/traitify-java/0.0.14/traitify-java-0.0.14.jar
 * [Jersey Client](https://jersey.java.net/nonav/documentation/1.17/chapter_deps.html#core_client) from <http://maven.java.net/service/local/artifact/maven/redirect?r=releases&g=com.sun.jersey&a=jersey-client&v=1.17&e=jar>.
 * [Jersey Core](https://jersey.java.net/download.html) from <http://maven.java.net/service/local/artifact/maven/redirect?r=releases&g=com.sun.jersey&a=jersey-core&v=1.17&e=jar>.
 

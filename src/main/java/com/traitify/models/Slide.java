@@ -1,9 +1,11 @@
 package com.traitify.models;
 
-import com.sun.jersey.api.client.GenericType;
-import com.traitify.net.ApiModel;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.traitify.net.ApiModel;
 
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.MediaType;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +13,7 @@ import java.util.List;
 public class Slide extends ApiModel {
 
     public static List<Slide> list(String assessment_id){
-        return baseResource("assessments/" + assessment_id + "/slides").get(new GenericType<List<Slide>>(){});
+        return baseResource("assessments/" + assessment_id + "/slides").get().readEntity(new GenericType<List<Slide>>(){});
     }
 
     public static Slide get(String assessment_id, String slide_id){
@@ -19,11 +21,13 @@ public class Slide extends ApiModel {
     }
 
     public static Slide update(String assessment_id, Slide slide){
-        return baseResource("assessments/" + assessment_id + "/slides/" + slide.getId()).put(Slide.class, slide);
+        return baseResource("assessments/" + assessment_id + "/slides/" + slide.getId()).put(
+                Entity.entity(slide, MediaType.APPLICATION_JSON_TYPE)).readEntity(Slide.class);
     }
 
     public static List<Slide> bulkUpdate(String assessment_id, List<Slide> slides) {
-        return baseResource("assessments/" + assessment_id + "/slides").put(new GenericType<List<Slide>>(){}, slides);
+        return baseResource("assessments/" + assessment_id + "/slides").put(
+                Entity.entity(slides, MediaType.APPLICATION_JSON_TYPE)).readEntity(new GenericType<List<Slide>>(){});
     }
 
     private String id;

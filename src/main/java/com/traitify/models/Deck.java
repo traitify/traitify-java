@@ -1,17 +1,16 @@
 package com.traitify.models;
 
-import com.sun.jersey.api.client.GenericType;
-import com.traitify.net.ApiModel;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.traitify.net.ApiModel;
 
-import java.util.Date;
+import javax.ws.rs.core.GenericType;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Deck extends ApiModel {
 
     public static List<Deck> list() {
-        return baseResource("decks").get(new GenericType<List<Deck>>(){});
+        return baseResource("decks").get().readEntity(new GenericType<List<Deck>>(){});
     }
 
     private String id;

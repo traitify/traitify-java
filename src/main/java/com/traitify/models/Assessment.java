@@ -1,9 +1,11 @@
 package com.traitify.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.sun.jersey.api.client.GenericType;
 import com.traitify.net.ApiModel;
 
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.MediaType;
 import java.util.Date;
 import java.util.List;
 
@@ -25,27 +27,33 @@ public class Assessment extends ApiModel {
     }
 
     public static Assessment create(Assessment assessment) {
-        return baseResource("assessments").post(Assessment.class, assessment);
+        return baseResource("assessments").post(Entity.entity(
+                assessment, MediaType.APPLICATION_JSON_TYPE)).readEntity(Assessment.class);
     }
 
     public static Assessment update(Assessment assessment) {
-        return baseResource("assessments/" + assessment.getId()).put(Assessment.class, assessment);
+        return baseResource("assessments/" + assessment.getId()).put(Entity.entity(
+                assessment, MediaType.APPLICATION_JSON_TYPE)).readEntity(Assessment.class);
     }
 
     public static AssessmentPersonalityTypes personalityTypes(String assessment_id){
-        return baseResource("assessments/" + assessment_id + "/personality_types").get(AssessmentPersonalityTypes.class);
+        return baseResource("assessments/" + assessment_id + "/personality_types")
+                .get().readEntity(AssessmentPersonalityTypes.class);
     }
 
     public static List<AssessmentPersonalityTrait> personalityTraits(String assessment_id, String personality_type_id){
-        return baseResource("assessments/" + assessment_id + "/personality_types/" + personality_type_id + "/personality_traits").get(new GenericType<List<AssessmentPersonalityTrait>>() {});
+        return baseResource("assessments/" + assessment_id + "/personality_types/" + personality_type_id + "/personality_traits")
+                .get().readEntity(new GenericType<List<AssessmentPersonalityTrait>>() {});
     }
 
     public static List<AssessmentPersonalityTraitDichotomy> personalityTraits(String assessment_id){
-        return baseResource("assessments/" + assessment_id + "/personality_traits").get(new GenericType<List<AssessmentPersonalityTraitDichotomy>>(){});
+        return baseResource("assessments/" + assessment_id + "/personality_traits")
+                .get().readEntity(new GenericType<List<AssessmentPersonalityTraitDichotomy>>(){});
     }
 
     public static List<AssessmentPersonalityTrait> rawPersonalityTraits(String assessment_id){
-        return baseResource("assessments/" + assessment_id + "/personality_traits/raw").get(new GenericType<List<AssessmentPersonalityTrait>>(){});
+        return baseResource("assessments/" + assessment_id + "/personality_traits/raw")
+                .get().readEntity(new GenericType<List<AssessmentPersonalityTrait>>(){});
     }
 
     public static List<ScoredCareer> careerMatches(String assessment_id){

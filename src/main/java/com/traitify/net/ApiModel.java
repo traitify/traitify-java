@@ -1,10 +1,11 @@
 package com.traitify.net;
 
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.core.util.Base64;
 import com.traitify.Traitify;
+import org.glassfish.jersey.internal.util.Base64;
 
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 
 public abstract class ApiModel {
@@ -12,19 +13,18 @@ public abstract class ApiModel {
     public ApiModel(){
     }
 
-    public static WebResource.Builder baseResource(String path) {
-        Client client = Client.create();
+    public static Invocation.Builder baseResource(String path) {
+        Client client = ClientBuilder.newClient();
 
         return client
-            .resource(Traitify.getApiBase() + "/" + Traitify.apiVersion  + "/" + path)
-            .accept(MediaType.APPLICATION_JSON)
-            .type(MediaType.APPLICATION_JSON)
+            .target(Traitify.getApiBase() + "/" + Traitify.apiVersion  + "/" + path)
+            .request(MediaType.APPLICATION_JSON)
             .header("Authorization", authHeader())
             .header("Accept-Content-Encoding", "gzip, deflate");
     }
 
     public static String authHeader() {
-        return "Basic " + new String(Base64.encode(Traitify.apiKey + ":x"));
+        return "Basic " + new String(Base64.encode((Traitify.apiKey + ":x").getBytes()));
     }
 
 }

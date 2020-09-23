@@ -1,7 +1,7 @@
 package com.traitify.net;
 
 import com.traitify.Traitify;
-import org.glassfish.jersey.internal.util.Base64;
+import java.util.Base64;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -24,7 +24,6 @@ public abstract class ApiModel {
     }
 
     public static String authHeader() {
-        return "Basic " + new String(Base64.encode((Traitify.apiKey + ":x").getBytes()));
+        return "Basic " + new String(Base64.getEncoder().encode((Traitify.apiKey + ":x").getBytes()));
     }
-
 }
